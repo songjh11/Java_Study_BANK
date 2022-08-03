@@ -6,7 +6,7 @@ import java.util.Scanner;
 import com.iu.start.bankmember.BankMembersDAO;
 import com.iu.start.bankmember.BankMembersDTO;
 
-public class TestMember {
+public class MemberTest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
