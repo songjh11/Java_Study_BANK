@@ -45,7 +45,7 @@ public class TestMember {
 				System.out.println("EMAIL: "+b.getEmail());
 				System.out.println("PHONE: "+b.getPhone());
 					}
-				if(ar.size()<0) {
+				if(ar.size()==0) {
 					System.out.println("검색 실패");
 				}
 			
