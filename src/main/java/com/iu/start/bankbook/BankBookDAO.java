@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Scanner;
 
 import com.iu.start.util.DBConnector;
 
@@ -37,14 +38,22 @@ public class BankBookDAO implements BookDAO {
 		Connection con = DBConnector.getConnection();
 		String sql = "UPDATE BANKBOOK SET BOOKSALE = ? WHERE BOOKNUM = ?";
 		PreparedStatement st = con.prepareStatement(sql);
+		int result = 0;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("일련번호 입력");
 		if(bankBookDTO.getBooksale()==1) {
 		st.setInt(1, 0);
-		st.setLong(2, bankBookDTO.getBooknum());}
+		st.setLong(2, sc.nextLong());
+		result = st.executeUpdate();
+		result=0;
+		}
 		else {
 			st.setInt(1, 1);
-			st.setLong(2, bankBookDTO.getBooknum());
+			st.setLong(2, sc.nextLong());
+			result = st.executeUpdate();
+			result=1;
 		}
-		int result = st.executeUpdate();		
+				
 		return result;
 	}
 	
@@ -77,19 +86,21 @@ public class BankBookDAO implements BookDAO {
 		BankBookDTO bankBookDTO2 = null;
 		String sql = "SELECT * FROM BANKBOOK WHERE BOOKNUM = ?";
 		PreparedStatement st = con.prepareStatement(sql);
-		st.setLong(1, bankBookDTO.getBooknum());
+		Scanner sc = new Scanner(System.in);
+		System.out.println("일련번호 입력");
+		st.setLong(1, sc.nextLong());
 		ResultSet rs = st.executeQuery();
-		if(rs.next()) {			
-			bankBookDTO2 = new BankBookDTO();
+			if(rs.next()) {
 			while(rs.next()) {
+				bankBookDTO2 = new BankBookDTO();
 			bankBookDTO2.setBooknum(rs.getLong("BOOKNUM"));
 			bankBookDTO2.setBookname(rs.getString("BOOKNAME"));
 			bankBookDTO2.setBookrate(rs.getDouble("BOOKRATE"));
 			bankBookDTO2.setBooksale(rs.getInt("BOOKSALE"));
+					}} else {
+						return bankBookDTO2;
 					}
-		} else {
-			return null;
-		}
+				
 		DBConnector.disConnection(rs, st, con);
 		return bankBookDTO2;
 	}
