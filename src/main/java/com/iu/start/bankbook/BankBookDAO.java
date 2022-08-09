@@ -86,18 +86,17 @@ public class BankBookDAO implements BookDAO {
 		BankBookDTO bankBookDTO2 = null;
 		String sql = "SELECT * FROM BANKBOOK WHERE BOOKNUM = ?";
 		PreparedStatement st = con.prepareStatement(sql);
-		Scanner sc = new Scanner(System.in);
-		System.out.println("일련번호 입력");
-		st.setLong(1, sc.nextLong());
+//		Scanner sc = new Scanner(System.in);
+//		System.out.println("일련번호 입력");
+		st.setLong(1, bankBookDTO.getBooknum());
 		ResultSet rs = st.executeQuery();
 			if(rs.next()) {
-			while(rs.next()) {
-				bankBookDTO2 = new BankBookDTO();
+			bankBookDTO2 = new BankBookDTO();
 			bankBookDTO2.setBooknum(rs.getLong("BOOKNUM"));
 			bankBookDTO2.setBookname(rs.getString("BOOKNAME"));
 			bankBookDTO2.setBookrate(rs.getDouble("BOOKRATE"));
 			bankBookDTO2.setBooksale(rs.getInt("BOOKSALE"));
-					}} else {
+					} else {
 						return bankBookDTO2;
 					}
 				
