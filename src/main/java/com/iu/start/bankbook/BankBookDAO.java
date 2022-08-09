@@ -23,10 +23,10 @@ public class BankBookDAO implements BookDAO {
 		
 		String sql = "INSERT INTO BANKBOOK VALUES (?, ?, ?, ?)";
 		PreparedStatement st = con.prepareStatement(sql);
-		st.setLong(1, bankBookDTO.getBooknum());
+		st.setLong(1, cal.getTimeInMillis());
 		st.setString(2, bankBookDTO.getBookname());
 		st.setDouble(3, bankBookDTO.getBookrate());
-		st.setInt(4, bankBookDTO.getBooksale());
+		st.setInt(4, 1);
 		int result = st.executeUpdate();
 		DBConnector.disConnection(st, con);
 		return result;

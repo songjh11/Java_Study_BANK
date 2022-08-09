@@ -22,8 +22,7 @@ public class BankMembersDAO implements MembersDAO {
 		st.setString(5, bankMembersDTO.getPhone());
 		
 		int rs = st.executeUpdate();
-		System.out.println(rs);
-		
+			
 		DBConnector.disConnection(st, con);
 				
 		return rs;
