@@ -17,7 +17,7 @@
 <a href="../member/login">Login</a>
 <!-- 절대경로 -->
 <a href = "/member/join">Join</a>
-<a href = "./list">List</a>
+
 <% if(bankBookDTO != null) {%>
 <table border = "1">
 	<thead>
@@ -46,5 +46,7 @@
 <% } else{ %>
 데이터가 없음
 <%} %>
+
+<a href = "./list">리스트 보기</a>
 </body>
 </html>

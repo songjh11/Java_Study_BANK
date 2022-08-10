@@ -13,14 +13,20 @@
 <body>
 <h1>Add Book Page</h1>
 <form action="add" method = "POST">
-
+<div>
 계좌명
 <br>
 <input type="text" name= "bookname"><br>
+</div>
+<div>
 이자율
 <br>
-<input type= "number" name = "bookrate"><br>
-<input type="submit" value="상품 등록">
+<input type= "text" name = "bookrate"><br><br>
+</div>
+<div>
+<input type="submit" value="계좌 등록">
+<button type="submit">Add</button>
+</div>
 </form> 
 </body>
 </html>
