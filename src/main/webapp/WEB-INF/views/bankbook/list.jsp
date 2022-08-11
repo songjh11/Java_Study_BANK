@@ -1,3 +1,5 @@
+<%@page import="com.iu.start.bankbook.BankBookController"%>
+<%@page import="org.springframework.ui.Model"%>
 <%@page import="com.iu.start.bankbook.BankBookDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -43,7 +45,7 @@
 <br><br>
 <!-- /bankbook/detail -->
 <!-- 링크 주소는 상대경로 작성 -->
-<a href = "detail">Detail Page</a>
+<a href = "add">상품등록</a>
 
 
 
