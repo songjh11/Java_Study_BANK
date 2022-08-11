@@ -1,9 +1,7 @@
-<%@page import="java.util.ArrayList"%>
-<%@page import="com.iu.start.bankmember.BankMembersDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <% ArrayList<BankMembersDTO> ar = (ArrayList<BankMembersDTO>)request.getAttribute("list");%>
-    
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+   
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,9 +9,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 <h1>List Page</h1>
 <form action="search", method="POST">
-<%if(ar != null){ %>
+
 <table border="1">
 	<thead>
 		<tr>
@@ -25,20 +24,20 @@
 		</tr>
 	</thead>
 	<tbody>
-		<% for(BankMembersDTO b: ar){ %>
-			<tr>
-				<td><%= b.getUsername() %></td>
-				<td><%= b.getPassward() %></td>
-				<td><%= b.getName() %></td>
-				<td><%= b.getEmail() %></td>
-				<td><%= b.getPhone() %></td>
-				</tr>
-		<%} %> 
+
+	 	<c:forEach items="${list}" var="dto">
+	 		<tr> 
+	 			<td>${pageScope.dto.username}</td>
+	 			<td>${pageScope.dto.password}</td>
+	 			<td>${pageScope.dto.name}</td>
+	 			<td>${pageScope.dto.email}</td>
+	 			<td>${pageScope.dto.phone}</td>
+	 		</tr>
+	 	</c:forEach>
+		
 	</tbody>
 </table>
-<%} else{ %>
-데이터가 없음
-<%} %>
+
 </form>
 </body>
 </html>

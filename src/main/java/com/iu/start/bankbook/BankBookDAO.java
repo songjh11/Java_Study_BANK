@@ -13,6 +13,19 @@ import com.iu.start.util.DBConnector;
 public class BankBookDAO implements BookDAO {
 	
 	@Override
+	public int setUpdate(BankBookDTO bankBookDTO) throws Exception {
+		Connection con = DBConnector.getConnection();
+		String sql = "UPDATE BANKBOOK SET BOOKNAME= ?, BOOKRATE=? WHERE BOOKNUM = ?";
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setString(1, bankBookDTO.getBookname());
+		st.setDouble(2, bankBookDTO.getBookrate());
+		st.setLong(3, bankBookDTO.getBooknum());
+		int result = st.executeUpdate();
+		DBConnector.disConnection(st, con);
+		return result;
+	}
+	
+	@Override
 	public int setBankBook(BankBookDTO bankBookDTO) throws Exception {
 		//bankbook 테이블에 insert
 		//booknum; 일련번호, 밀리세컨즈 활용
@@ -103,5 +116,16 @@ public class BankBookDAO implements BookDAO {
 				
 		DBConnector.disConnection(rs, st, con);
 		return bankBookDTO2;
+	}
+	
+	public int delete(BankBookDTO bankBookDTO) throws Exception{
+		Connection con = DBConnector.getConnection();
+		String sql = "DELETE BANKBOOK WHERE BOOKNUM = ?";
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setLong(1, bankBookDTO.getBooknum());
+		int result = st.executeUpdate();
+		DBConnector.disConnection(st, con);
+		return result;
+		
 	}
 }

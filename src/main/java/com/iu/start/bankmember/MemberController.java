@@ -28,10 +28,11 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="login", method=RequestMethod.POST)
-	public String login(BankMembersDTO bankMembersDTO) throws Exception {
+	public String login(BankMembersDTO bankMembersDTO, Model model) throws Exception {
 		BankMembersDAO bankMembersDAO = new BankMembersDAO();
-		ArrayList<BankMembersDTO> ar = bankMembersDAO.getSearchById(bankMembersDTO.getUsername());
-		if(ar.size()>0) {
+		bankMembersDTO = bankMembersDAO.getLogin(bankMembersDTO);
+		model.addAttribute("member", bankMembersDTO);
+		if(bankMembersDTO!=null) {
 			System.out.println("로그인 성공");
 		} else {
 			System.out.println("로그인 실패");

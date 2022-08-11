@@ -1,14 +1,10 @@
-<%@page import="com.iu.start.bankbook.BankBookController"%>
-<%@page import="org.springframework.ui.Model"%>
-<%@page import="com.iu.start.bankbook.BankBookDTO"%>
-<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     
     <%
     	//스크립틀릿 형태 <% Java 코드 작성 시 사용% >
     	//표현식 HTML <%=자바변수 또는 값% >
-    	ArrayList<BankBookDTO> ar = (ArrayList<BankBookDTO>)request.getAttribute("list");
     %>
 <!DOCTYPE html>
 <html>
@@ -24,25 +20,22 @@
 <table border = "1">
 	<thead>
 		<tr>
-			<th>BOOKNUM</th> 
 			<th>BOOKNAME</th> 
 			<th>BOOKRATE</th> 
-			<th>BOOKSALE</th>
 		</tr>
 	</thead>
 	<tbody>
-		<% for(BankBookDTO b: ar){ %>
-			<tr>
-				<td><a href="./detail?booknum=<%=b.getBooknum()%>">
-					<%= b.getBookname() %></a>
-				</td>
-				<td><%= b.getBookrate() %></td>
+			<c:forEach items="${list}" var="dto">
+				<tr>
+					<td><a href="./detail?booknum=${dto.booknum}">
+					${dto.bookname}</a></td>
+					<td>${dto.bookrate}</td>
 				</tr>
-		<%} %>
+			</c:forEach>		
 	</tbody>
 
 </table>
-<br><br>
+<br>
 <!-- /bankbook/detail -->
 <!-- 링크 주소는 상대경로 작성 -->
 <a href = "add">상품등록</a>

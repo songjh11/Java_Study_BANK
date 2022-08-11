@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1>Login Page</h1>
-<form action="/member/login" method="POST">
+<form action="./login" method="POST">
         <a href= "/"><input type="button" value="메인 페이지로 돌아가기"></a>
         <br><br>
         <div>

@@ -3,6 +3,8 @@ package com.iu.start.bankbook;
 import java.util.ArrayList;
 
 public interface BookDAO {
+	
+	public int setUpdate(BankBookDTO bankBookDTO) throws Exception;
 
 	
 	public int setBankBook(BankBookDTO bankBookDTO) throws Exception;

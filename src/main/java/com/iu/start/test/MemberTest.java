@@ -40,7 +40,7 @@ public class MemberTest {
 			ar = bankMembersDAO.getSearchById(search);
 				for(BankMembersDTO b: ar) {
 				System.out.println("USERNAME: "+b.getUsername());
-				System.out.println("PASSWORD: "+b.getPassward());
+				System.out.println("PASSWORD: "+b.getPassword());
 				System.out.println("NAME: "+b.getName());
 				System.out.println("EMAIL: "+b.getEmail());
 				System.out.println("PHONE: "+b.getPhone());

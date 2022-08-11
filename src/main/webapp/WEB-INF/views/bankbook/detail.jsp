@@ -2,9 +2,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-    <%
+<%--     <% //요청이 발생하면 생성, 응답이 나가면 소멸 : RequestScope(Request영역)
     	BankBookDTO bankBookDTO = (BankBookDTO)request.getAttribute("one");
-    %>
+    %> --%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,8 +18,7 @@
 <a href="../member/login">Login</a>
 <!-- 절대경로 -->
 <a href = "/member/join">Join</a>
-
-<% if(bankBookDTO != null) {%>
+<br><br>
 <table border = "1">
 	<thead>
 		<tr>
@@ -30,23 +30,18 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td><%= bankBookDTO.getBooknum() %></td>
-			<td><%= bankBookDTO.getBookname() %></td>
-			<td><%= bankBookDTO.getBookrate() %></td>
-			<td><% if(bankBookDTO.getBooksale()==1){ %>
-					판매 중
-				<%} else{%>
-					판매 종료
-				<%} %>
-			</td>
+ 			<td>${requestScope.one.getBooknum()}</td>
+			<td>${requestScope.one.bookname}</td>
+			<td>${one.bookrate}</td>
+			<td>${one.booksale}</td>
 		</tr> 
 		
 	</tbody>
 </table>
-<% } else{ %>
-데이터가 없음
-<%} %>
-
+<br>
 <a href = "./list">리스트 보기</a>
+<br><br>
+<a href= "./update?booknum=${one.booknum}">수정하기</a>
+<a href="./delete?booknum=${one.booknum}">삭제하기</a>
 </body>
 </html>

@@ -3,7 +3,7 @@ package com.iu.start.bankmember;
 public class BankMembersDTO {
 
 	private String username;
-	private String passward;
+	private String password;
 	private String name; 
 	private String email;
 	private String phone;
@@ -14,11 +14,11 @@ public class BankMembersDTO {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public String getPassward() {
-		return passward;
+	public String getPassword() {
+		return password;
 	}
-	public void setPassward(String passward) {
-		this.passward = passward;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	public String getName() {
 		return name;

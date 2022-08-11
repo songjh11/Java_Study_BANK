@@ -20,7 +20,7 @@
             <input type="button" value="아이디 중복 확인">
             <br>
             비밀번호<br>
-            <input type="password" name="passward"><br>
+            <input type="password" name="password"><br>
             비밀번호 재확인<br>
             <input type="password"><br>
             <br>
