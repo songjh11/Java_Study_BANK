@@ -8,12 +8,12 @@
 </head>
 <body>
 	<h1>Login Page</h1>
-<form action="./login" method="POST">
+<form action="./login.do" method="POST">
         <a href= "/"><input type="button" value="메인 페이지로 돌아가기"></a>
         <br><br>
         <div>
-            ID  <input type="text" name="username" value="ID를 입력하세요"><br><br>
-            PW <input type="password" name="password"><br><br>
+            ID  <input type="text" name="username" value="1234"><br><br>
+            PW <input type="password" name="password" value="1234"><br><br>
             
             <input type="submit" value="로그인">
             <input type="reset" value="재입력"><br><br>

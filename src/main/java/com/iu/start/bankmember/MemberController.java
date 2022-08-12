@@ -3,6 +3,7 @@ package com.iu.start.bankmember;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,31 +19,41 @@ import com.iu.start.bankbook.BankBookDTO;
 public class MemberController {
 	//annotation 
 	//@ : 설명+실행
+	
+	@RequestMapping (value="logout.do", method=RequestMethod.GET)
+	public String logout(HttpSession session) throws Exception {
+		System.out.println("logout");
+		session.invalidate();
+		return "redirect:../";
+	}
+	
 		
 	// /member/login
 	//해당 URL이 요청왔을때 실행해야하는 메서드 생성
-	
-	@RequestMapping(value="login", method=RequestMethod.GET)
+	@RequestMapping(value="login.do", method=RequestMethod.GET)
 	public void login() {
 		System.out.println("로그인 실행");
 	}
 	
-	@RequestMapping(value="login", method=RequestMethod.POST)
-	public String login(BankMembersDTO bankMembersDTO, Model model) throws Exception {
+	@RequestMapping(value="login.do", method=RequestMethod.POST)
+	public String login(HttpSession session, BankMembersDTO bankMembersDTO, Model model) throws Exception {
 		BankMembersDAO bankMembersDAO = new BankMembersDAO();
 		bankMembersDTO = bankMembersDAO.getLogin(bankMembersDTO);
-		model.addAttribute("member", bankMembersDTO);
+//		model.addAttribute("member", bankMembersDTO);
+//		HttpSession session = request.getSession();
+		session.setAttribute("member", bankMembersDTO);
+		
 		if(bankMembersDTO!=null) {
 			System.out.println("로그인 성공");
 		} else {
 			System.out.println("로그인 실패");
-			return "redirect:./login";
+			return "redirect:./login.do";
 		}
 		return "redirect:../";
 	}
 	
 	//join   /member/join <-GET
-	@RequestMapping(value = "join", method = RequestMethod.GET)
+	@RequestMapping(value = "join.do", method = RequestMethod.GET)
 	public String join() {
 		System.out.println("회원가입 실행");
 		System.out.println("GET");
@@ -50,7 +61,7 @@ public class MemberController {
 	}
 	
 	//POST
-	@RequestMapping(value="join", method = RequestMethod.POST)
+	@RequestMapping(value="join.do", method = RequestMethod.POST)
 	public String join(BankMembersDTO bankMembersDTO) throws Exception {
 		System.out.println("회원가입 실행");
 		System.out.println("POST");
@@ -61,7 +72,7 @@ public class MemberController {
 				} else {
 				System.out.println("실패");
 					}
-				return "redirect:./login";
+				return "redirect:./login.do";
 	}
 	
 	//SEARCH 메서드명은 DAO의 메서드 명과 동일
@@ -70,13 +81,13 @@ public class MemberController {
 	//ID를 입력해서 검색
 	// /member/search POST /WEB-INF/views/member/list.jsp
 	
-	@RequestMapping(value="search", method= RequestMethod.GET)
+	@RequestMapping(value="search.do", method= RequestMethod.GET)
 	public void getSearchById() {
 		System.out.println("Search");
 //		return "/member/list";
 		}
 	
-	@RequestMapping(value="search", method= RequestMethod.POST)
+	@RequestMapping(value="search.do", method= RequestMethod.POST)
 	public ModelAndView getSearchById(String search, Model model) throws Exception {
 		System.out.println("post");
 		BankMembersDAO bankMembersDAO = new BankMembersDAO();

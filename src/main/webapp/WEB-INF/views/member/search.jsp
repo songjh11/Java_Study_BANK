@@ -11,7 +11,7 @@
 <body>
 <h1>Search Page</h1>
 
-<form action="search" method="POST">
+<form action="search.do" method="POST">
 	회원 이름 입력: <input type="text" name="search">
 	<button type="submit">검    색</button>
 </form>

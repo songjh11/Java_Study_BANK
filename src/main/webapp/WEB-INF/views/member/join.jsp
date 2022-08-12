@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1>Join Page</h1>
-  <form action="join" method="POST">
+  <form action="join.do" method="POST">
             이용 약관 동의(필수)<input type="checkbox"><br>
             개인정보 수집 및 이용 동의(필수)<input type="checkbox"><br>
             위치 기반 서비스 이용 약관 동의(선택)<input type="checkbox"><br>
@@ -57,7 +57,7 @@
             <br><br>
 
             <input type="submit" value="가입하기">
-            <a href = "./login" ><input type="button" value="로그인 화면으로 돌아가기"></a>
+            <a href = "./login.do" ><input type="button" value="로그인 화면으로 돌아가기"></a>
 
         </form>
 

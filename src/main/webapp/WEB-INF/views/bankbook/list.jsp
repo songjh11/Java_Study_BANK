@@ -27,7 +27,7 @@
 	<tbody>
 			<c:forEach items="${list}" var="dto">
 				<tr>
-					<td><a href="./detail?booknum=${dto.booknum}">
+					<td><a href="./detail.do?booknum=${dto.booknum}">
 					${dto.bookname}</a></td>
 					<td>${dto.bookrate}</td>
 				</tr>
@@ -38,7 +38,7 @@
 <br>
 <!-- /bankbook/detail -->
 <!-- 링크 주소는 상대경로 작성 -->
-<a href = "add">상품등록</a>
+<a href = "add.do">상품등록</a>
 
 
 

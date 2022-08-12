@@ -12,7 +12,7 @@
 </head>
 <body>
 <h1>Add Book Page</h1>
-<form action="add" method = "POST">
+<form action="add.do" method = "POST">
 <div>
 계좌명
 <br>
