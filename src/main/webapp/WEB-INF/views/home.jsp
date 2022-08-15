@@ -26,6 +26,7 @@
 <a href="./bankbook/list.do">List</a><br>
 <a href="./bankbook/add.do">Add</a><br>
 <a href="./member/search.do">Member Search</a><br>
+<a href="./board/list.do">글 목록 보기</a>
 
 </body>
 </html>
