@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +19,15 @@ import com.iu.start.bankbook.BankBookDTO;
 @RequestMapping (value="/member/*")
 //이 클래스는 controller 역할이고 container(객체 생명 주기 관리)가 이 클래스의 객체를 생성하도록 위임 
 public class MemberController {
+	
+	@Autowired
+	private BankMembersService bankMembersService;
+	
+//	@Autowired
+//	public MemberController(BankMembersDAO bankMembersDAO) {
+//		this.bankMembersDAO = bankMembersDAO;
+//	}
+	
 	//annotation 
 	//@ : 설명+실행
 	
@@ -37,8 +48,7 @@ public class MemberController {
 	
 	@RequestMapping(value="login.do", method=RequestMethod.POST)
 	public String login(HttpSession session, BankMembersDTO bankMembersDTO, Model model) throws Exception {
-		BankMembersDAO bankMembersDAO = new BankMembersDAO();
-		bankMembersDTO = bankMembersDAO.getLogin(bankMembersDTO);
+		bankMembersDTO = bankMembersService.getLogin(bankMembersDTO);
 //		model.addAttribute("member", bankMembersDTO);
 //		HttpSession session = request.getSession();
 		session.setAttribute("member", bankMembersDTO);
@@ -65,8 +75,7 @@ public class MemberController {
 	public String join(BankMembersDTO bankMembersDTO) throws Exception {
 		System.out.println("회원가입 실행");
 		System.out.println("POST");
-		BankMembersDAO bankMembersDAO = new BankMembersDAO();
-		int result = bankMembersDAO.setJoin(bankMembersDTO);
+		int result = bankMembersService.setJoin(bankMembersDTO);
 			if(result==1) {
 				System.out.println("성공");
 				} else {
@@ -90,8 +99,7 @@ public class MemberController {
 	@RequestMapping(value="search.do", method= RequestMethod.POST)
 	public ModelAndView getSearchById(String search, Model model) throws Exception {
 		System.out.println("post");
-		BankMembersDAO bankMembersDAO = new BankMembersDAO();
-		ArrayList<BankMembersDTO> ar = bankMembersDAO.getSearchById(search);
+		ArrayList<BankMembersDTO> ar = bankMembersService.getSearchById(search);
 		model.addAttribute("list", ar);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/member/list");

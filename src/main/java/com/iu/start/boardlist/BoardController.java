@@ -47,8 +47,10 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="update.do", method=RequestMethod.GET)
-	public void setUpdate() throws Exception {
+	public void setUpdate(BoardDTO boardDTO) throws Exception {
 		System.out.println("Update");
+		boardDTO = boardDAO.getDetail(boardDTO);
+		System.out.println(boardDTO.getTextNum());
 	}
 	
 	@RequestMapping(value="update.do", method=RequestMethod.POST)
@@ -57,6 +59,7 @@ public class BoardController {
 		ModelAndView modelAndView =new ModelAndView();
 		modelAndView.setViewName("/board/update.do");
 		int result = boardDAO.update(boardDTO);
+		System.out.println(result);
 		if (result>0) {
 			modelAndView.setViewName("redirect:./list.do");
 		}

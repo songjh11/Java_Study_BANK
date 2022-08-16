@@ -55,7 +55,6 @@ public BoardDTO getDetail(BoardDTO boardDTO) throws Exception {
 
 public int setBoard(BoardDTO boardDTO) throws Exception {
 	Connection con = DBConnector.getConnection();
-	Calendar cal = Calendar.getInstance();
 	String sql = "INSERT INTO BOARD VALUES(BOARD_SEQ.NEXTVAL, ?, ?, ?, SYSDATE, BOARD_SEQ.NEXTVAL)";
 	PreparedStatement st = con.prepareStatement(sql);
 	st.setString(1, boardDTO.gettName());
@@ -85,6 +84,9 @@ public int update(BoardDTO boardDTO) throws Exception{
 	st.setString(2, boardDTO.gettContents());
 	st.setInt(3, boardDTO.getTextNum());
 	int result = st.executeUpdate();
+	
+	DBConnector.disConnection(st, con);
+	
 	return result;
 }
 
