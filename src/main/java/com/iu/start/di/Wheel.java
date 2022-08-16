@@ -1,4 +1,4 @@
-package com.iu.start.start.di;
+package com.iu.start.di;
 
 import org.springframework.stereotype.Component;
 

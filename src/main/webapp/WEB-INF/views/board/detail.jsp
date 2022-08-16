@@ -35,7 +35,7 @@
 		</tr>
 	</tbody>
 </table><c:if test="${not empty sessionScope.member}">
-<a href="./update.do?=${bdetail.textNum}">글 수정하기</a>
+<a href="./update.do?textNum=${bdetail.textNum}">글 수정하기</a>
 <a href="./delete.do">글 삭제하기</a>
 </c:if>
 </body>

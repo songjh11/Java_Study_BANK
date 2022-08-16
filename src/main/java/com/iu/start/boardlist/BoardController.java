@@ -47,10 +47,11 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="update.do", method=RequestMethod.GET)
-	public void setUpdate(BoardDTO boardDTO) throws Exception {
+	public void setUpdate(BoardDTO boardDTO, Model model) throws Exception {
 		System.out.println("Update");
 		boardDTO = boardDAO.getDetail(boardDTO);
 		System.out.println(boardDTO.getTextNum());
+		model.addAttribute("bUpdate", boardDTO);		
 	}
 	
 	@RequestMapping(value="update.do", method=RequestMethod.POST)
