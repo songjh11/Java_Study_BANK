@@ -52,8 +52,15 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="update.do", method=RequestMethod.POST)
-	public void postUpdate() throws Exception {
+	public ModelAndView postUpdate(BoardDTO boardDTO) throws Exception {
 		System.out.println("postUpdate");
+		ModelAndView modelAndView =new ModelAndView();
+		modelAndView.setViewName("/board/update.do");
+		int result = boardDAO.update(boardDTO);
+		if (result>0) {
+			modelAndView.setViewName("redirect:./list.do");
+		}
+		return modelAndView;		
 	}
 	
 	@RequestMapping(value="delete.do", method=RequestMethod.GET)

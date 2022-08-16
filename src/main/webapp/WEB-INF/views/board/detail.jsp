@@ -20,7 +20,7 @@
 		</tr>
 		<tr>
 				<td>${bdetail.textNum}</td>
-	 			<td>${bdetail.tName}</a></td>
+	 			<td>${bdetail.tName}</td>
 	 			<td>${bdetail.writer}</td>
 	 			<td>${bdetail.wDate}</td>
 	 			<td>${bdetail.viewNum}</td>

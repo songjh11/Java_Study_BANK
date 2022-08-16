@@ -75,7 +75,17 @@ public int delete(BankBookDTO bankBookDTO) throws Exception{
 	int result = st.executeUpdate();
 	DBConnector.disConnection(st, con);
 	return result;
-	
+}
+
+public int update(BoardDTO boardDTO) throws Exception{
+	Connection con = DBConnector.getConnection();
+	String sql = "UPDATE BOARD SET TNAME=?, TCONTENTS=? WHERE TEXTNUM=?";
+	PreparedStatement st = con.prepareStatement(sql);
+	st.setString(1, boardDTO.gettName());
+	st.setString(2, boardDTO.gettContents());
+	st.setInt(3, boardDTO.getTextNum());
+	int result = st.executeUpdate();
+	return result;
 }
 
 }
