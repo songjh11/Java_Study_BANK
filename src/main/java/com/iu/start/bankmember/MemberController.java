@@ -1,6 +1,6 @@
 package com.iu.start.bankmember;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -99,7 +99,7 @@ public class MemberController {
 	@RequestMapping(value="search.do", method= RequestMethod.POST)
 	public ModelAndView getSearchById(String search, Model model) throws Exception {
 		System.out.println("post");
-		ArrayList<BankMembersDTO> ar = bankMembersService.getSearchById(search);
+		List<BankMembersDTO> ar = bankMembersService.getSearchById(search);
 		model.addAttribute("list", ar);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/member/list");

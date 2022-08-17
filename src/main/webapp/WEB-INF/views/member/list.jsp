@@ -27,7 +27,7 @@
 
 	 	<c:forEach items="${list}" var="dto">
 	 		<tr> 
-	 			<td>${pageScope.dto.username}</td>
+	 			<td>${pageScope.dto.userName}</td>
 	 			<td>${pageScope.dto.password}</td>
 	 			<td>${pageScope.dto.name}</td>
 	 			<td>${pageScope.dto.email}</td>

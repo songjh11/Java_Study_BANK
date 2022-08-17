@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import org.apache.ibatis.session.SqlSession;
@@ -43,26 +44,8 @@ public class BankMembersDAO implements MembersDAO {
 	}
 	
 	@Override
-	public ArrayList<BankMembersDTO> getSearchById(String search) throws Exception {
-		Connection con = DBConnector.getConnection();
-		ArrayList<BankMembersDTO> ar = new ArrayList<BankMembersDTO>();
-		String sql = "SELECT * FROM BANKMEMBERS WHERE USERNAME LIKE ? ORDER BY USERNAME ASC";
-		PreparedStatement st = con.prepareStatement(sql);
-		st.setString(1, "%"+search+"%");
-		ResultSet rs = st.executeQuery();
-			while(rs.next()) {
-				BankMembersDTO bankMembersDTO = new BankMembersDTO();
-				bankMembersDTO.setUserName(rs.getString("username"));
-				bankMembersDTO.setPassword(rs.getString("password"));
-				bankMembersDTO.setName(rs.getString("name"));
-				bankMembersDTO.setEmail(rs.getString("email"));
-				bankMembersDTO.setPhone(rs.getString("phone"));
-			    ar.add(bankMembersDTO);	
-		}
-				
-		DBConnector.disConnection(rs, st, con);
-		
-		return ar;
+	public List<BankMembersDTO> getSearchById(String search) throws Exception {
+			return sqlSession.selectList(NAMESPACE+"getSearchById", search);
 	}
 
 }

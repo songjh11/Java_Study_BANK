@@ -9,7 +9,10 @@
 			SELECT USERNAME, NAME FROM BANKMEMBERS WHERE USERNAME=#{userName} AND PASSWORD=#{password}
 		</select>
 		
-		<select id="getSearchById" parameterType="java.lang.Spring" resultType="com.iu.start.bankmember.BankMembersDTO">
-			SELECT * FROM BANKMEMBERS WHERE USERNAME LIKE %||||% ORDER BY USERNAME ASC
-		</select>
+ 	 		<select id="getSearchById" parameterType="java.lang.String" resultType="com.iu.start.bankmember.BankMembersDTO">
+			SELECT * FROM BANKMEMBERS WHERE USERNAME LIKE '%'||#{search}||'%' ORDER BY USERNAME ASC
+			</select>
+		
+
+		
 	</mapper>
