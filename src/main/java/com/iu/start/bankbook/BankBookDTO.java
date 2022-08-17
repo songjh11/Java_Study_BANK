@@ -2,34 +2,36 @@ package com.iu.start.bankbook;
 
 public class BankBookDTO {
 
-	private Long booknum;//일련번호, 밀리세컨즈 활용
-	private String bookname;//계좌명
-	private Double bookrate;//이자율
-	private Integer booksale;//판매가능여부, 1로 입력
+	private Long bookNum;//일련번호, 밀리세컨즈 활용
+	private String bookName;//계좌명
+	private Double bookRate;//이자율
+	private Integer bookSale;//판매가능여부, 1로 입력
 	
-	public Long getBooknum() {
-		return booknum;
+	public Long getBookNum() {
+		return bookNum;
 	}
-	public void setBooknum(Long booknum) {
-		this.booknum = booknum;
+	public void setBookNum(Long bookNum) {
+		this.bookNum = bookNum;
 	}
-	public String getBookname() {
-		return bookname;
+	public String getBookName() {
+		return bookName;
 	}
-	public void setBookname(String bookname) {
-		this.bookname = bookname;
+	public void setBookName(String bookName) {
+		this.bookName = bookName;
 	}
-	public Double getBookrate() {
-		return bookrate;
+	public Double getBookRate() {
+		return bookRate;
 	}
-	public void setBookrate(Double bookrate) {
-		this.bookrate = bookrate;
+	public void setBookRate(Double bookRate) {
+		this.bookRate = bookRate;
 	}
-	public Integer getBooksale() {
-		return booksale;
+	public Integer getBookSale() {
+		return bookSale;
 	}
-	public void setBooksale(Integer booksale) {
-		this.booksale = booksale;
+	public void setBookSale(Integer bookSale) {
+		this.bookSale = bookSale;
 	}
-    
+	
+	
+	
 }

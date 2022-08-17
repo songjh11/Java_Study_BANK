@@ -27,20 +27,7 @@ public class BankMembersDAO implements MembersDAO {
 		
 	@Override
 	public int setJoin(BankMembersDTO bankMembersDTO) throws Exception {
-		Connection con = DBConnector.getConnection();
-		String sql = "INSERT INTO BANKMEMBERS VALUES (?, ?, ?, ?, ?)";
-		PreparedStatement st = con.prepareStatement(sql);
-		st.setString(1, bankMembersDTO.getUserName());
-		st.setString(2, bankMembersDTO.getPassword());
-		st.setString(3, bankMembersDTO.getName());
-		st.setString(4, bankMembersDTO.getEmail());
-		st.setString(5, bankMembersDTO.getPhone());
-		
-		int rs = st.executeUpdate();
-			
-		DBConnector.disConnection(st, con);
-				
-		return rs;
+	return sqlSession.insert(NAMESPACE+"setJoin", bankMembersDTO);
 	}
 	
 	@Override

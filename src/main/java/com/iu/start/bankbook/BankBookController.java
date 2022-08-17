@@ -73,7 +73,7 @@ public class BankBookController {
 		System.out.println("update GET");
 		BankBookDAO bankBookDAO =new BankBookDAO();
 		bankBookDTO = bankBookDAO.getDetail(bankBookDTO);
-		System.out.println(bankBookDTO.getBooknum());
+		System.out.println(bankBookDTO.getBookNum());
 		model.addAttribute("update",bankBookDTO);	
 	}
 	
@@ -98,7 +98,7 @@ public class BankBookController {
 		int result = bankBookDAO.setUpdate(bankBookDTO);
 		if(result>0) {
 			System.out.println("성공");
-			modelAndView.setViewName("redirect:./detail.do?booknum="+bankBookDTO.getBooknum());
+			modelAndView.setViewName("redirect:./detail.do?booknum="+bankBookDTO.getBookNum());
 		}
 		return modelAndView;
 	}

@@ -30,10 +30,10 @@
 	</thead>
 	<tbody>
 		<tr>
- 			<td>${one.booknum}</td>
-			<td>${one.bookname}</td>
-			<td>${one.bookrate}</td>
-			<td>${one.booksale}</td>
+ 			<td>${one.bookNum}</td>
+			<td>${one.bookName}</td>
+			<td>${one.bookRate}</td>
+			<td>${one.bookSale}</td>
 		</tr> 
 		
 	</tbody>
@@ -41,10 +41,10 @@
 <br>
 <a href = "./list.do">리스트 보기</a>
 <br><br>
-<a href= "./update.do?booknum=${one.booknum}">수정하기</a>
-<a href="./delete.do?booknum=${one.booknum}">삭제하기</a>
+<a href= "./update.do?bookNum=${one.bookNum}">수정하기</a>
+<a href="./delete.do?bookNum=${one.bookNum}">삭제하기</a>
 <c:if test="${not empty sessionScope.member}">
-<a href="../bankAccount/add.do?booknum=${one.booknum}">가입하기</a>
+<a href="../bankAccount/add.do?bookNum=${one.bookNum}">가입하기</a>
 </c:if>
 
 </body>

@@ -13,6 +13,8 @@
 			SELECT * FROM BANKMEMBERS WHERE USERNAME LIKE '%'||#{search}||'%' ORDER BY USERNAME ASC
 			</select>
 		
-
+		<insert id="setJoin" parameterType="com.iu.start.bankmember.BankMembersDTO">
+			INSERT INTO BANKMEMBERS VALUES (#{userName}, #{password}, #{name}, #{email}, #{phone})
+		</insert>
 		
 	</mapper>

@@ -27,9 +27,9 @@
 	<tbody>
 			<c:forEach items="${list}" var="dto">
 				<tr>
-					<td><a href="./detail.do?booknum=${dto.booknum}">
-					${dto.bookname}</a></td>
-					<td>${dto.bookrate}</td>
+					<td><a href="./detail.do?bookNum=${dto.bookNum}">
+					${dto.bookName}</a></td>
+					<td>${dto.bookRate}</td>
 				</tr>
 			</c:forEach>		
 	</tbody>

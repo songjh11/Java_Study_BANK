@@ -16,12 +16,12 @@
 <div>
 계좌명
 <br>
-<input type="text" name= "bookname"><br>
+<input type="text" name= "bookName"><br>
 </div>
 <div>
 이자율
 <br>
-<input type= "text" name = "bookrate"><br><br>
+<input type= "text" name = "bookRate"><br><br>
 </div>
 <div>
 <input type="submit" value="계좌 등록">

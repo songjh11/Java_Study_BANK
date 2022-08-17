@@ -11,15 +11,15 @@
 
 <form action="update.do" method="POST">
 	<div>
-		<input type="hidden" name="booknum" value="${update.booknum}">
+		<input type="hidden" name="bookNum" value="${update.bookNum}">
 	</div>
 	<br>
 	<div>
-		Name:  <input type="text" name="bookname" value="${update.bookname}">
+		Name:  <input type="text" name="bookName" value="${update.bookName}">
 	</div>
 	<br>
 	<div>
-		Rate:  <input type="text" name="bookrate" value="${update.bookrate}">
+		Rate:  <input type="text" name="bookRate" value="${update.bookRate}">
 	</div>
 	<br>
 	<button type="submit">수정</button>
