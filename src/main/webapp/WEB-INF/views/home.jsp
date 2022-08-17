@@ -18,7 +18,7 @@
 <a href="./member/join.do">Join</a><br>
 </c:if>
 <c:if test="${not empty sessionScope.member}">
-<h3>${sessionScope.member.username}님 환영합니다</h3>
+<h3>${sessionScope.member.userName}님 환영합니다</h3>
 <a href="./member/logout.do">Logout</a><br>
 <a href="#">My Page</a><br>
 </c:if>

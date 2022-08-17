@@ -23,7 +23,7 @@ public class BankAccountController {
 		System.out.println("account GET");
 		System.out.println(bankAccountDTO.getBooknum());
 		BankMembersDTO bankMembersDTO = (BankMembersDTO)session.getAttribute("member"); 
-		bankAccountDTO.setUsername(bankMembersDTO.getUsername());
+		bankAccountDTO.setUsername(bankMembersDTO.getUserName());
 		//DTO-> username, booknum 필요
        int result = this.accountDAO.setAccount(bankAccountDTO);
        return "redirect:../bankbook/list.do";

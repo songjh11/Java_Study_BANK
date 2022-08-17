@@ -32,8 +32,9 @@
 	 		</tr>
 		</c:forEach>	
 </tbody>
+</table>
 <br>
-<a href="./detail.do">글 상세보기</a><br>
+<a href="../">메인으로 돌아가기</a>
 <c:if test="${not empty sessionScope.member}">
 <a href="./add.do">글 작성하기</a>
 </c:if>

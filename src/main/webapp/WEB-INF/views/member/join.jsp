@@ -16,7 +16,7 @@
             프로모션 정보 수신 동의(선택)<input type="checkbox"><br>
             <hr>
             아이디<br>
-            <input type="text" name="username">
+            <input type="text" name="userName">
             <input type="button" value="아이디 중복 확인">
             <br>
             비밀번호<br>

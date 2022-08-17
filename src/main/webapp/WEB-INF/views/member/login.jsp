@@ -12,7 +12,7 @@
         <a href= "/"><input type="button" value="메인 페이지로 돌아가기"></a>
         <br><br>
         <div>
-            ID  <input type="text" name="username" value="1234"><br><br>
+            ID  <input type="text" name="userName" value="1234"><br><br>
             PW <input type="password" name="password" value="1234"><br><br>
             
             <input type="submit" value="로그인">
