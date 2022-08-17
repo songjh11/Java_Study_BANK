@@ -36,11 +36,14 @@ public class Car {
 		return engine;
 	}
 
-	public void setEngine(Wheel leftWheel, Wheel rightWheel) {
+	public void setEngine(Engine engine) {
+		this.engine = engine;
+	}
+	
+	public Car (Wheel leftWheel, Wheel rightWheel) {
 		this.leftWheel = leftWheel;
 		this.rightWheel = rightWheel;
 	}
-	
 	
 
 }

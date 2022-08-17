@@ -13,16 +13,16 @@
 		<bean class="com.iu.start.di.Engine" id="engine"></bean>
 		<bean class="com.iu.start.di.LeftWheel" id="leftWheel"></bean>
 		<bean class="com.iu.start.di.RightWheel" id="rightWheel"></bean>
-		<bean class="com.iu.start.di.Car" id="car"></bean>
-<!-- 	<constructor-arg index="0" ref="leftWheel"></constructor-arg>
-		<constructor-arg index="1" ref="rightWheel"></constructor-arg> -->
+		<bean class="com.iu.start.di.Car" id="car">
+ 	<constructor-arg index="0" ref="leftWheel"></constructor-arg>
+		<constructor-arg index="1" ref="rightWheel"></constructor-arg>
 		
 <!--    <constructor-arg name="leftWheel" ref="leftWheel"></constructor-arg>
 		<constructor-arg name="rightWheel" ref="rightWheel"></constructor-arg> -->
 		
 <!--	<constructor-arg type="com.iu.start.di.Wheel" ref="leftWheel"></constructor-arg> -->
 <!--	<constructor-arg type="com.iu.start.di.Wheel" ref="rightWheel"></constructor-arg> -->
-
 		<property name="engine" ref="engine"></property>
+		</bean>
 		
 </beans>
